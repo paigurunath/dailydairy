@@ -90,7 +90,7 @@ var SomeModelSchema = new Schema({
 var SomeModel = mongoose.model('SomeModel', SomeModelSchema );
 
 // Create an instance of model SomeModel
-var awesome_instance = new SomeModel({ name: 'awesome' });
+var awesome_instance = new SomeModel({ name: 'This is fantastic' });
 
 // Save the new model instance, passing a callback
 awesome_instance.save(function (err) {
