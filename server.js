@@ -65,13 +65,17 @@ router.get('/', function(req, res) {
 
 var mongoose = require('mongoose');
  
-mongoose.connect('mongodb://127.0.0.1/dailydairy', function (err) {
- 
+// mongoose.connect('mongodb://127.0.0.1/dailydairy', function (err) {
+// mongoose.connect('mongodb://admin:admin@cluster0-shard-00-00-eq7qt.mongodb.net:27017,cluster0-shard-00-01-eq7qt.mongodb.net:27017,cluster0-shard-00-02-eq7qt.mongodb.net:27017/test?ssl=true&replicaSet=Cluster0-shard-0&authSource=admin', function (err) { 
+mongoose.connect('mongodb://admin:admin@ds125588.mlab.com:25588/dairy', function (err) {
+
+
    if (err) throw err;
  
    console.log('Successfully connected');
  
-});
+}).then(() => console.log('connection successful'))
+  .catch((err) => console.error(err));
 
 // Define schema
 var Schema = mongoose.Schema;
@@ -94,6 +98,10 @@ awesome_instance.save(function (err) {
   // saved!
 });
 
+
+SomeModel.find({}, function(err, data){
+        console.log(">>>> " + data );
+    });
 
 });
 
